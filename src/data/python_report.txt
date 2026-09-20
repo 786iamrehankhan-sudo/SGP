@@ -1,0 +1,16 @@
+=== Nagpur UHI report ===
+Mean LST 2019: 37.43 °C → 2024: 38.77 °C  (Δ +1.34 °C)
+Green area (NDVI>0.4): 60 → 60 km²   Built (NDBI>0.1): 61 → 88 km²
+LST ~ NDVI + NDBI (2024): a=42.92 b_ndvi=-8.14 b_ndbi=12.45  R²=0.892 RMSE=0.96 °C  r(NDVI,LST)=-0.73
+City LST trend: +0.334 °C/yr (R² 0.49) → 2030 ≈ 40.3 °C
+Persistent hotspots (≥5 yrs): 66.9 km²; Gi* significant clusters: 199.7 km²
+
+Zones by ΔLST:
+  Besa – Beltarodi                   ΔLST +4.48 °C  ΔNDVI -0.062  ΔNDBI +0.248  persistent    0%
+  MIHAN – Jamtha                     ΔLST +3.77 °C  ΔNDVI -0.043  ΔNDBI +0.193  persistent   29%
+  Wathoda – Hudkeshwar               ΔLST +3.02 °C  ΔNDVI -0.031  ΔNDBI +0.133  persistent   16%
+  Manish Nagar – Somalwada           ΔLST +2.51 °C  ΔNDVI -0.030  ΔNDBI +0.108  persistent    1%
+  Kalamna – Pardi                    ΔLST +1.80 °C  ΔNDVI -0.013  ΔNDBI +0.055  persistent   14%
+  Pratap Nagar – Khamla              ΔLST +1.55 °C  ΔNDVI +0.003  ΔNDBI +0.024  persistent   62%
+  Nandanvan – Sakkardara             ΔLST +1.51 °C  ΔNDVI -0.005  ΔNDBI +0.025  persistent   72%
+  Itwari – Mahal (Old City)          ΔLST +1.41 °C  ΔNDVI -0.007  ΔNDBI +0.024  persistent   77%

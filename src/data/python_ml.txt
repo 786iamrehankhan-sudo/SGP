@@ -1,0 +1,44 @@
+$ python -m nagpur_uhi ml --year 2024 --forecast 2030
+
+=== ML report · 2024 · spatial GroupKFold over 210 blocks (2 km) ===
+  Linear (OLS)         R² 0.899 ± 0.011   RMSE 0.920 °C   MAE 0.743
+  Random Forest        R² 0.907 ± 0.010   RMSE 0.881 °C   MAE 0.712
+  Gradient Boosting    R² 0.907 ± 0.009   RMSE 0.881 °C   MAE 0.711   ◀ best
+  permutation importance: ndbi 2.76, ndvi 0.51, y_km 0.04, dist_center 0.02, ndvi_1km 0.02, x_km 0.02
+
+=== K-means land cover (k=5) ===
+  Water                           3.8 →    3.8 km²   LST 31.3 °C
+  Dense canopy                   25.7 →   26.5 km²   LST 33.7 °C
+  Moderate vegetation            42.3 →   42.4 km²   LST 35.5 °C
+  Sparse veg. / open            489.6 →  445.4 km²   LST 37.7 °C
+  Mixed built-up                135.5 →  144.1 km²   LST 39.9 °C
+  Dense built-up / industrial    78.9 →  113.6 km²   LST 44.3 °C
+  open/vegetated → built-up: 44.8 km²   built → open: 1.5 km²
+
+=== DBSCAN heat islands (≥4 yrs in top decile, eps 1.5 cells) · 12 islands, 9 noise px ===
+  #1 Nandanvan         46.5 km²  mean 44.9  peak 50.1 °C  persistence 5.7 yrs
+  #2 MIHAN              8.8 km²  mean 47.0  peak 50.1 °C  persistence 5.5 yrs
+  #3 Hingna MIDC        4.6 km²  mean 47.3  peak 50.7 °C  persistence 5.9 yrs
+  #4 Airport            2.4 km²  mean 46.6  peak 48.9 °C  persistence 5.9 yrs
+  #5 Manish Nagar       2.1 km²  mean 44.5  peak 46.3 °C  persistence 5.7 yrs
+  #6 Kalamna            1.8 km²  mean 46.1  peak 47.3 °C  persistence 6.0 yrs
+
+=== IsolationForest anomalies · 188 px (7.5 km²) hotter than land cover explains ===
+  periphery        21.1364N 79.1251E  LST 46.0  residual +1.9 °C
+  Nandanvan        21.1382N 79.1232E  LST 45.9  residual +1.9 °C
+  Itwari–Mahal     21.1526N 79.1059E  LST 47.1  residual +1.6 °C
+  Kamptee Rd       21.1887N 79.1212E  LST 49.1  residual +1.5 °C
+  Pratap Nagar     21.1147N 79.0599E  LST 47.2  residual +1.5 °C
+
+=== Forecast 2030 (hybrid GBM + trend) ===
+  back-test Hybrid ML (GBM + trend)    RMSE 1.14  bias -0.82  pattern RMSE 0.79  R² 0.85
+  back-test Per-pixel linear trend     RMSE 1.32  bias -1.02  pattern RMSE 0.83  R² 0.80
+  back-test Persistence (2023)         RMSE 1.53  bias -1.28  pattern RMSE 0.83  R² 0.73
+  city mean 38.77 → 40.87 °C   area > 42 °C: 105 → 191 km²
+
+=== ML what-if · Besa (vegetation Δ → ΔLST, ML vs linear) ===
+   -10%  veg: ML -0.07 / lin +0.59    built: ML -1.13 / lin -0.92
+    +0%  veg: ML +0.00 / lin +0.00    built: ML +0.00 / lin +0.00
+   +10%  veg: ML -0.24 / lin -0.59    built: ML +1.30 / lin +0.90
+   +20%  veg: ML -0.39 / lin -1.18    built: ML +2.72 / lin +1.81
+   +30%  veg: ML -0.68 / lin -1.77    built: ML +4.02 / lin +2.70
